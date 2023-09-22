@@ -11,6 +11,8 @@ pipeline {
         NEXUS_PASS = 'admin123'
         RELEASE_REPO = 'vprofile-release'
         CENTRAL_REPO = 'vpro-maven-central'
+        NEXUS_VERSION = 'nexus3'
+        NEXUS_PROTOCOL = 'http'
         NEXUSIP = '172.31.82.157'
         NEXUSPORT = '8081'
         NEXUS_GRP_REPO = 'vpro-maven-group'
@@ -69,6 +71,26 @@ pipeline {
                     // true = set pipeline to UNSTABLE, false = don't
                     waitForQualityGate abortPipeline: true
                 }
+            }
+        }
+
+        stage("Upload Artifact") {
+            steps {
+                nexusArtifactUploader(
+                  nexusVersion: NEXUS_VERSION,
+                  protocol: NEXUS_PROTOCOL,
+                  nexusUrl: "${NEXUSIP}:${NEXUSPORT}",
+                  groupId: 'QA',
+                  version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}"
+                  repository: "${RELEASE_REPO}",
+                  credentialsId: "${NEXUS_LOGIN}",
+                  artifacts: [
+                    [artifactId: 'vproapp',
+                     classifier: '',
+                     file: 'target/vprofile-v2.war',
+                     type: 'war'],
+                  ]
+                )
             }
         }
     }
