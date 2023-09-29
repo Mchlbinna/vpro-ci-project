@@ -11,8 +11,8 @@ pipeline {
     }
 
     environment {
-        cluster = 'vpro-prod'
-        service = 'vproapp-prod-svc'
+        cluster = 'vpro-prodn'
+        service = 'vproapp-prod-svcc'
     }
 
     stages {
