@@ -12,7 +12,7 @@ pipeline {
 
     environment {
         cluster = 'vpro-prod'
-        service = 'vproap-prod-svc'
+        service = 'vproapp-prod-svc'
     }
 
     stages {
