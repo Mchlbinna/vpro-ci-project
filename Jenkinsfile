@@ -29,7 +29,7 @@ pipeline {
         ARTIFACT_NAME = "vprofile-v${buildNumber}.war"
         AWS_S3_BUCKET = 'vpro-cicd-beann'
         AWS_EB_APP_NAME = 'vproapp042'
-        AWS_EB_ENVIRONMENT = 'Vproapp042-env'
+        AWS_EB_ENVIRONMENT = 'Vproapp042-prod-env'
         AWS_EB_APP_VERSION = "${buildNumber}"
     }
 
