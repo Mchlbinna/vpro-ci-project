@@ -6,6 +6,7 @@ pipeline {
     agent any
     environment {        
         NEXUSPASS = credentials('nexuspass')
+        ANSIBLE_HOST_KEY_CHECKING = "False"
     }
 
     stages {
