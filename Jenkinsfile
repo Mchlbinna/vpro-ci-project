@@ -37,8 +37,13 @@ pipeline {
                 playbook    : 'ansible/site.yml',
                 installation: 'ansible',
                 colorized   : true,
+<<<<<<< HEAD
 			    credentialsId: 'applogin-prod',
 			    disableHostKeyChecking: true,
+=======
+			    credentialsId: 'applogin',
+			    hostKeyChecking: false,
+>>>>>>> cicd-jenkans
                 extraVars   : [
                    	USER: "admin",
                     PASS: "${NEXUSPASS}",
