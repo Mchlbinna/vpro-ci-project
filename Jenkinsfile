@@ -25,6 +25,7 @@ pipeline {
         SONARSERVER = 'sonarserver'
         SONARSCANNER = 'sonarscanner'
         NEXUSPASS = credentials('nexuspass')
+        ANSIBLE_HOST_KEY_CHECKING = "False"
     }
 
     stages {
